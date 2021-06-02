@@ -12,7 +12,7 @@ function initMap() {
 					data[0]?.longitude
 				);
 			} else {
-				center = { lat: 58.255, lng: 22.4919 };
+				center = { lat: 58.416665, lng: 22.499998 };
 			}
 
 			map = createMap(center);
@@ -34,7 +34,7 @@ function initMap() {
 function createMap(center) {
 	let map = new google.maps.Map(document.getElementById("map"), {
 		center,
-		zoom: 16,
+		zoom: 9,
 	});
 
 	let drawingManager = new google.maps.drawing.DrawingManager();
@@ -47,6 +47,7 @@ function createMap(center) {
 				method: "POST",
 				body: JSON.stringify({
 					name: prompt("name"),
+					desc: prompt("description"),
 					pos: marker.getPosition().toJSON(),
 				}),
 			});
